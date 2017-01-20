@@ -1,0 +1,20 @@
+1. Create a folder called src. Write a program called 'divide.c' and expose a 'divide.h'
+2. Create a makefile that has the following intruction
+
+CC = gcc
+CFLAGS = -g -Wall
+
+all: libdivide.so
+
+libdivide.so: divide.o
+	$(CC) $(CFLAGS) divide.o -shared -o libdivide.so
+ 
+divide.o: divide.c divide.h
+	$(CC) $(CFLAGS) -c -fPIC divide.c -o divide.o
+    
+3. This a creates a libdivide.so file
+4. Copy this to the 'shared' folder
+5. Copy the interface file called 'divide.h' and put it in the 'inc' folder.
+
+6. Compile by mentioning this.
+7. When calling the main program, set environmental variables to point to the shared library folder
